@@ -13,3 +13,7 @@ class BlockedIP(models.Model):
 
     def __str__(self):
         return self.ip_address
+class RequestLog(models.Model):
+    # your existing fields...
+    country = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)

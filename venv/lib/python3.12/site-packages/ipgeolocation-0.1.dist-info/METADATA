@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: ipgeolocation
+Version: 0.1
+Summary: Retrieve IP Geolocation information
+Home-page: https://github.com/Bhai4You/
+Author: Parixit Sutariya
+Author-email: parixit1337@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+<!--
+https://pypi.org/project/ipgeolocation
+-->
+
+[![](https://img.shields.io/pypi/pyversions/readme-generator.svg?longCache=True)](https://pypi.org/project/readme-generator/)
+
+#### Installation
+```
+$ pip install ipgeolocation
+```
+
+#### Features
++   **`ipgeolocation`**, ** Retrieve IP Geolocation information **
+
+
+#### How to install ?
+```
+$ pkg install python -y
+$ pip install ipgeolocation
+$ pip ipgeolocation
+```
+#### Run ?
+```
+$ ipgeolocation
+```
+
+### Disclaimer
+```
+We are not responsible for your loss by this tool.
+this tool is made for Education/Learning Purpose.
+Dont harm anyone using this tool.
+```
+#### Usage
+```
+$ ipgeolocation -h
+
+Author : Maldevel
+PIP module : Parixit Sutariya
+Github : github.com/Bhai4You
+Blogspot : https://bhai4you.blogspot.com
+
+```
+
+<p align="center">
+    <a href="https://github.com/Bhai4you">Github</a>
+</p>
+
+

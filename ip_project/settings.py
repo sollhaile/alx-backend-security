@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'ip_tracking.middleware.IPLogMiddleware',
+    'ip_tracking.middleware.IPGeolocationMiddleware',
 
 ]
 

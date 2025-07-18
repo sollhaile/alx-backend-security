@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ip_tracking',
+    'django_celery_beat'
+
 
 ]
-
+CELERY_BEAT_SCHEDULE = {
+    'detect-anomalies-every-hour': {
+        'task': 'ip_tracking.tasks.detect_anomalies',
+        'schedule': 3600.0,  # every hour
+    },
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'ip_tracking.middleware.IPLogMiddleware',
     'ip_tracking.middleware.IPGeolocationMiddleware',
-
+    'ip_tracking.middleware.IPRequestLoggingMiddleware'
 ]
 
 ROOT_URLCONF = 'ip_project.urls'
@@ -59,7 +66,7 @@ ROOT_URLCONF = 'ip_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+      'DIRS': [BASE_DIR / 'templates'],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ip_project.wsgi.application'
 
-
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 

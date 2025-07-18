@@ -67,3 +67,30 @@ class IPLogMiddleware(MiddlewareMixin):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+class IPRequestLoggingMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        ip = self.get_client_ip(request)
+        path = request.path
+
+        log = cache.get('ip_request_log', {})
+        if ip not in log:
+            log[ip] = []
+        log[ip].append(path)
+        cache.set('ip_request_log', log, timeout=None)
+
+        return self.get_response(request)
+
+    def get_client_ip(self, request):
+        return request.META.get('REMOTE_ADDR')
+    
+class IPRequestLoggingMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        # Your logic here (e.g., log IP)
+        response = self.get_response(request)
+        return response
